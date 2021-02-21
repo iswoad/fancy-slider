@@ -18,8 +18,9 @@ const KEY = '15674931-a9d714b6e9d654524df198e00&q';
 const showImages = (images) => {
   imagesArea.style.display = 'block';
   gallery.innerHTML = '';
-  // show gallery title
   toggleSpinner();
+  // show gallery title
+  
   galleryHeader.style.display = 'flex';
   images.forEach(image => {
     let div = document.createElement('div');
@@ -35,7 +36,7 @@ const getImages = (query) => {
     .then(response => response.json())
     .then(data => showImages(data.hits))
     .catch(err => console.log(err))
-}
+};
 
 let slideIndex = 0;
 const selectItem = (event, img) => {
@@ -116,7 +117,8 @@ const imgResult = () =>{
   clearInterval(timer);
   getImages(search.value)
   sliders.length = 0;
-}
+  toggleSpinner();
+};
 searchBtn.addEventListener('click', function () {
   imgResult();
 })
@@ -137,6 +139,7 @@ sliderBtn.addEventListener('click', function () {
 });
 
 const toggleSpinner = () => {
-  const spinner = document.getElementById('loading-spinner').classList;
-  console.log(spinner)
+  const spinner = document.getElementById('loading-spinner');
+  spinner.classList.toggle('d-none');
+
 }
