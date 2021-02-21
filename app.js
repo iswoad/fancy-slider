@@ -118,6 +118,11 @@ searchBtn.addEventListener('click', function () {
 })
 
 sliderBtn.addEventListener('click', function () {
-  createSlider()
-})
+  const duration = document.getElementById('duration').value || 1000;
+  if (duration < 0) {
+    alert('Negative duration is not applicable');
+  } else {
+    createSlider()
+  }
+});
 
