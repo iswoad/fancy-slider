@@ -19,6 +19,7 @@ const showImages = (images) => {
   imagesArea.style.display = 'block';
   gallery.innerHTML = '';
   // show gallery title
+  toggleSpinner();
   galleryHeader.style.display = 'flex';
   images.forEach(image => {
     let div = document.createElement('div');
@@ -135,3 +136,7 @@ sliderBtn.addEventListener('click', function () {
   }
 });
 
+const toggleSpinner = () => {
+  const spinner = document.getElementById('loading-spinner').classList;
+  console.log(spinner)
+}
