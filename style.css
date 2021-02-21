@@ -54,7 +54,25 @@ img {
 .main {
   display: none;
 }
+.clickable-image{
+  width:50vw;
+}
 
+.image-open{
+  animation: scaleUp 2s forwards linear;
+}
+
+.clickable-image:hover{
+  cursor: pointer;
+}
+
+@keyframes scaleUp{
+  from{
+    width:50vw;
+  }to{
+    width:100vw;
+  }
+}
 @media (max-width: 767px) {
   .justify-content-around.align-items-center.mt-3.gallery-header.mb-2 {
     flex-direction: column;

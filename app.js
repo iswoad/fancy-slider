@@ -143,3 +143,8 @@ const toggleSpinner = () => {
   spinner.classList.toggle('d-none');
 
 }
+const imageZoom = document.querySelector(".clickable-image");
+
+imageZoom.addEventListener("click", () =>{
+  imageZoom.classList.add("image-open");
+})
