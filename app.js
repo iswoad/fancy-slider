@@ -4,6 +4,7 @@ const galleryHeader = document.querySelector('.gallery-header');
 const searchBtn = document.getElementById('search-btn');
 const sliderBtn = document.getElementById('create-slider');
 const sliderContainer = document.getElementById('sliders');
+const search = document.getElementById('search');
 // selected image 
 let sliders = [];
 
@@ -65,7 +66,7 @@ const createSlider = () => {
 
   sliderContainer.appendChild(prevNext)
   document.querySelector('.main').style.display = 'block';
-  // hide image aria
+  // hide image area
   imagesArea.style.display = 'none';
   const duration = document.getElementById('duration').value || 1000;
   sliders.forEach(slide => {
@@ -109,12 +110,20 @@ const changeSlide = (index) => {
   items[index].style.display = "block";
 }
 
-searchBtn.addEventListener('click', function () {
+const imgResult = () =>{
   document.querySelector('.main').style.display = 'none';
   clearInterval(timer);
-  const search = document.getElementById('search');
   getImages(search.value)
   sliders.length = 0;
+}
+searchBtn.addEventListener('click', function () {
+  imgResult();
+})
+
+search.addEventListener('keyup', function (e) {
+  if (e.keyCode === 13) {
+    imgResult();
+  }
 })
 
 sliderBtn.addEventListener('click', function () {
