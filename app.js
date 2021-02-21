@@ -38,13 +38,13 @@ const getImages = (query) => {
 let slideIndex = 0;
 const selectItem = (event, img) => {
   let element = event.target;
-  element.classList.add('added');
+  element.classList.toggle('added');
  
   let item = sliders.indexOf(img);
   if (item === -1) {
     sliders.push(img);
   } else {
-    alert('Hey, Already added !')
+    sliders.pop(img);
   }
 }
 var timer
@@ -103,10 +103,10 @@ const changeSlide = (index) => {
   }
 
   items.forEach(item => {
-    item.style.display = 'none';
+    item.style.display = "none";
   })
 
-  items[index].style.display = 'block';
+  items[index].style.display = "block";
 }
 
 searchBtn.addEventListener('click', function () {
